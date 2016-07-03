@@ -32,17 +32,19 @@ public class MainActivity extends AppCompatActivity {
         logisticsDatas.add(new LogisticsData().setTime("2016-6-28 15:13:02").setContext("【北京鸿运良乡站】的【010058.269】正在派件"));
 
         NodeProgressView nodeProgressView = (NodeProgressView) findViewById(R.id.npv_NodeProgressView);
-        nodeProgressView.setNodeProgressAdapter(new NodeProgressAdapter() {
+        if (nodeProgressView != null) {
+            nodeProgressView.setNodeProgressAdapter(new NodeProgressAdapter() {
 
-            @Override
-            public int getCount() {
-                return logisticsDatas.size();
-            }
+                @Override
+                public int getCount() {
+                    return logisticsDatas.size();
+                }
 
-            @Override
-            public List<LogisticsData> getData() {
-                return logisticsDatas;
-            }
-        });
+                @Override
+                public List<LogisticsData> getData() {
+                    return logisticsDatas;
+                }
+            });
+        }
     }
 }
